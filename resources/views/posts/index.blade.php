@@ -7,13 +7,18 @@
 </head>
 <body>
     <h1>Posts</h1>
+    <a href="/create">Create a post</a>
 
     @foreach($posts as $post)
         <ul>
-                <a href="/show/{{ $post->id }}">
-                    <li> {{ $post->title }} </li>
-                </a>
-            <p>CategoryID - {{ $post->category_id }}</p>
+            <p>PostID - {{ $post->id }}</p>
+
+            <a href="/show/{{ $post->id }}">
+                <li> {{ $post->title }} </li>
+            </a>
+                <p>CategoryID - {{ $post->category_id }}</p>
+                
+                <br></br>
         </ul>
     @endforeach
 

@@ -14,8 +14,22 @@ class PostController extends Controller
     }
 
     public function show($id) {
-        $post = Post::find($id);
+        $posts = Post::find($id);
 
         return view("posts.show", ["posts" => $posts]);
+    }
+
+    public function create() {
+        return view("posts.create");
+    }
+
+    public function store(Request $request) {
+        $post = new Post();
+
+        $post->title = $request->title;
+        $post->category_id = $request->category_id;
+        $post->save();
+
+        return redirect("/");
     }
 }
